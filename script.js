@@ -24,19 +24,29 @@ const personalMovieDB = {
     privat: false
 };
 
-      for (let i = 0; i < 2; i++) {
-          const a = prompt('Один из последних просмотренных фильмов?', ''),
-                b = prompt('На сколько оцените его?', '');
-
-          if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-            personalMovieDB.movies[a] = b;
-            console.log('done');
-          } else {
-              console.log('error');
-              i--;
-          }
-      }
-
+     // First 
+let x = 0;
+while (x < 1){
+    const   a = prompt('Последний фильм?', ''),
+            b = +prompt('Ваша оценка?', '');
+    if(a != null && b != null && a != '' && b != '' && a.length < 50){
+    // Если а не "отмена" и b не "отмена" и a не пустая строка и b не пустая строка и а < 50 символов то
+    personalMovieDB.movies[a] = b;
+    console.log("Done!");
+    } else {
+        console.log("Error");
+        x--;
+    }
+    x++;
+}
+// Second
+let x = 0;
+while (x < 1){
+    const   a = prompt('Последний фильм?', ''),
+            b = +prompt('Ваша оценка?', '');
+    (a != null && b != null && a != '' && b != '' && a.length < 50) ? personalMovieDB.movies[a] = b : x--, console.log("Error");
+    x++;
+}
 if (personalMovieDB.count < 10) {
     console.log("Просмотрено довольно мало фильмов");
 } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
